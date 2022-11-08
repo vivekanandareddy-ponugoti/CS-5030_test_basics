@@ -1,5 +1,3 @@
-
-
 var todoservice = require('./todo.service.js');
 describe('todo test suite', () => {
 
@@ -19,9 +17,17 @@ describe('todo test suite', () => {
         expect(todo_service.get_todos().todo.length).toEqual(3);
     });
 
-    
+    test("add_todo", () => {
+        expect(todo_service.add_todo({ title: 'T4', description: 'D4', done: false }).todo.length).toEqual(4);
+    });
 
-    // Write all your test cases here that corresponds to software requirements
+    test("delete_todo", () => {
+        expect(todo_service.delete_todo(1).todo.length).toEqual(3);
+    });
+
+    test("update_todo", () => {
+        expect(todo_service.update_todo(1, { title: 'T4', description: 'D4', done: false }).todo.length).toEqual(3);
+    });
 
 
 });
